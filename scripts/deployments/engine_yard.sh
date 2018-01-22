@@ -18,5 +18,6 @@ gem install engineyard --no-ri --no-rdoc
 
 echo ${ENVIRONMENT_PARAMETER}
 
+ey init
 ey deploy --ref ${CI_COMMIT_ID} --api-token "${EY_API_TOKEN}" ${ENVIRONMENT_PARAMETER}
 ${CHECK_URL_COMMAND}
