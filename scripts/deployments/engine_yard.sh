@@ -14,10 +14,10 @@ set -e
 ENVIRONMENT_PARAMETER=${EY_ENVIRONMENT:+"-e $EY_ENVIRONMENT"}
 CHECK_URL_COMMAND=${EY_APP_URL:+"check_url $EY_APP_URL"}
 
-gem install engineyard --no-ri --no-rdoc --no-migrate
+gem install engineyard --no-ri --no-rdoc
 
 echo ${ENVIRONMENT_PARAMETER}
 
 ey init
-ey deploy --ref ${CI_COMMIT_ID} --api-token "${EY_API_TOKEN}" ${ENVIRONMENT_PARAMETER}
+ey deploy --ref ${CI_COMMIT_ID} --api-token "${EY_API_TOKEN}" ${ENVIRONMENT_PARAMETER} --no-migrate
 ${CHECK_URL_COMMAND}
